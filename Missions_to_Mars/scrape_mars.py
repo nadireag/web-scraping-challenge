@@ -60,7 +60,7 @@ def scrape():
 
     # strip unnecessary strings
     mars_weather = mars_weather.strip("InSight")
-    mars_weather = mars_weather.strip("pic.twitter.com/VxWNunPM5q")
+    mars_weather = mars_weather.split("pic",1)[0]
 
     # replace newline characters with ",", and manipulate the string 
     mars_weather = mars_weather.replace("\n", ", ")
@@ -98,8 +98,10 @@ def scrape():
 
     data = soup.find_all("div", class_="item")
     
+    # cretae a list to hold data for hemispheres
     hemisphere_img_urls = []
 
+    # loop the data list to find titles and img urls for hemispheres
     for d in data:
     
         title = d.find("h3").text
