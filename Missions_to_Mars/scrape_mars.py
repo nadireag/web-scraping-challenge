@@ -87,7 +87,7 @@ def scrape():
     facts_html = facts_df.to_html()
 
     # Mars hemisphere
-    # get the url and oepn it with browser
+    # get the url and open it with browser
     h_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(h_url)
     # cerate html 

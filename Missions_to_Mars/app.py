@@ -23,9 +23,11 @@ def home():
 def scrape():
     # run the scrape function
     mars_data = scrape_mars.scrape()
+
+    # insert the mars data in to the collection
     mongo.db.mars_collection.update({}, mars_data, upsert=True)
 
-    # go back to home page
+    # go back to the home page
     return redirect("/")
 
 # run the app
